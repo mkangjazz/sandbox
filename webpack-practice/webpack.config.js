@@ -1,18 +1,24 @@
 const webpack = require('webpack');
 const path = require('path');
-
+  
 module.exports = {
   entry: {
-    about: './dist/about',
-    contact: './dist/contact',
-//    about: './src/index.js',
+//    about: './dist/about',
+    print: './src/print.js',
+    index: './src/index.js',
+  },
+  devServer: {
+    contentBase: path.join(__dirname, 'dist'),
+    compress: true,
+    port: 9000
   },
   output: {
-//    filename: 'main.js',
-//    path: path.resolve(__dirname, 'dist'),
-    path: path.join(__dirname, 'build'),
+    filename: 'bundle.js',
+    path: path.resolve(__dirname, 'dist'),
     filename: '[name].bundle.js',
   },
+  plugins: [
+  ],
   module: {
     rules: [
       {
@@ -54,7 +60,11 @@ module.exports = {
             ]
           }
         }
-      }
+      },
+      {
+        test: /\.(woff|woff2|eot|ttf|otf)$/i,
+        type: 'asset/resource',
+      },
     ]
   }
 };

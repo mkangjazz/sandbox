@@ -33,7 +33,7 @@ class Message extends React.Component {
   render() {
     return (
       <div className="react-component">
-        <h1>{this.props.title}</h1>
+        <h2>{this.props.title}</h2>
         <p>{this.props.message}</p>
       </div>
     );
@@ -42,8 +42,9 @@ class Message extends React.Component {
 
 ReactDOM.render(
   <Message
-    title="Email Joe"
-    message="Can you email him?"
-  />,
+    title="React Component Title"
+    message="React Component Message"
+  >
+  </Message>,
   document.getElementById('react-app')
 );
